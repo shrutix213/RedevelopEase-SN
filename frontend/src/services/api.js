@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://redevelopease-sn.onrender.com",
 });
 
 // Intercept requests to inject JWT token
