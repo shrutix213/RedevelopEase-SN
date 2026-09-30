@@ -13,7 +13,8 @@ const connectDB = async () => {
         console.log(`[DB] Connected to MongoDB at: ${mongoUri}`);
         return;
       } catch (externalErr) {
-        console.warn(`[DB] Configured MONGODB_URI failed (${externalErr.message}). Switching to MongoMemoryServer...`);
+  console.error(externalErr);   // <-- add this line
+  console.warn(`[DB] Configured MONGODB_URI failed (${externalErr.message}). Switching to MongoMemoryServer...`);
       }
     }
 
