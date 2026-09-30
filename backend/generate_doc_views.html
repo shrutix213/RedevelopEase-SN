@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Postman and MongoDB Views</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; margin: 0; background: #1e1e1e; color: #d4d4d4; }
+    .postman-bg { background: #212121; }
+    .postman-nav { background: #181818; }
+    .json-key { color: #9cdcfe; }
+    .json-str { color: #ce9178; }
+    .json-num { color: #b5cea8; }
+    .json-bool { color: #569cd6; }
+    .mongo-header { background: #001e2b; border-bottom: 2px solid #00ed64; }
+  </style>
+</head>
+<body class="p-0">
+
+  <!-- ================= POSTMAN GET API VIEW ================= -->
+  <div id="view-postman-get" class="w-[1440px] h-[900px] bg-[#1e1e1e] flex flex-col overflow-hidden">
+    <!-- Topbar -->
+    <div class="h-10 bg-[#181818] border-b border-[#2d2d2d] flex items-center justify-between px-4 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#ff6c37] flex items-center gap-1.5 text-sm">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5z"/></svg>
+          Postman
+        </span>
+        <span class="text-[#888]">/ RedevelopEase API Workspace / Societies / Fetch All Societies</span>
+      </div>
+      <div class="flex items-center gap-3 text-[#aaa]">
+        <span>Environment: <strong class="text-white">Local Development</strong></span>
+        <span class="px-2 py-0.5 rounded bg-[#333] text-white">Save</span>
+      </div>
+    </div>
+
+    <!-- Request Bar -->
+    <div class="p-4 bg-[#212121] border-b border-[#2d2d2d] flex items-center gap-2">
+      <span class="px-3 py-2 bg-[#0c7c59] text-white font-bold rounded-l text-xs">GET</span>
+      <input type="text" value="http://localhost:5000/api/societies" class="flex-1 bg-[#181818] text-white px-3 py-2 text-xs border border-[#333] font-mono" readonly>
+      <button class="bg-[#097bed] hover:bg-[#0066cc] text-white font-bold px-6 py-2 rounded text-xs">Send</button>
+    </div>
+
+    <!-- Request / Response Pane -->
+    <div class="flex-1 flex flex-col p-4 bg-[#1e1e1e] overflow-hidden">
+      <!-- Response Status Bar -->
+      <div class="flex items-center justify-between pb-3 border-b border-[#333]">
+        <div class="flex items-center gap-4 text-xs">
+          <span class="text-[#888]">Status: <strong class="text-[#28a745]">200 OK</strong></span>
+          <span class="text-[#888]">Time: <strong class="text-[#28a745]">32 ms</strong></span>
+          <span class="text-[#888]">Size: <strong class="text-[#28a745]">3.42 KB</strong></span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-[#888]">
+          <span class="px-2 py-1 bg-[#282828] text-white rounded">Pretty</span>
+          <span>JSON</span>
+        </div>
+      </div>
+
+      <!-- Response Body -->
+      <pre class="mt-3 p-4 bg-[#141414] rounded border border-[#2d2d2d] font-mono text-xs overflow-auto flex-1 leading-relaxed">
+{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"count"</span>: <span class="json-num">2</span>,
+  <span class="json-key">"data"</span>: [
+    {
+      <span class="json-key">"_id"</span>: <span class="json-str">"6797a1f0c23948e8a12001"</span>,
+      <span class="json-key">"name"</span>: <span class="json-str">"Greenview Heights Co-op Housing Society Ltd."</span>,
+      <span class="json-key">"address"</span>: <span class="json-str">"Plot 42, Senapati Bapat Marg, Dadar West"</span>,
+      <span class="json-key">"city"</span>: <span class="json-str">"Mumbai"</span>,
+      <span class="json-key">"pincode"</span>: <span class="json-str">"400028"</span>,
+      <span class="json-key">"totalFlats"</span>: <span class="json-num">120</span>,
+      <span class="json-key">"registrationNumber"</span>: <span class="json-str">"BOM/HSG/TC/10423/1986"</span>,
+      <span class="json-key">"secretaryId"</span>: {
+        <span class="json-key">"_id"</span>: <span class="json-str">"6797a1f0c23948e8a12002"</span>,
+        <span class="json-key">"name"</span>: <span class="json-str">"Rajesh Mehta"</span>,
+        <span class="json-key">"email"</span>: <span class="json-str">"secretary.greenview@gmail.com"</span>,
+        <span class="json-key">"phone"</span>: <span class="json-str">"+91 98205 98765"</span>
+      },
+      <span class="json-key">"redevelopmentInfo"</span>: {
+        <span class="json-key">"builderName"</span>: <span class="json-str">"Apex Lifespaces & Infra Pvt Ltd"</span>,
+        <span class="json-key">"reraNumber"</span>: <span class="json-str">"P51800028192"</span>,
+        <span class="json-key">"status"</span>: <span class="json-str">"RCC Construction"</span>,
+        <span class="json-key">"currentProgress"</span>: <span class="json-num">68</span>
+      }
+    }
+  ]
+}</pre>
+    </div>
+  </div>
+
+  <!-- ================= POSTMAN POST API VIEW ================= -->
+  <div id="view-postman-post" class="w-[1440px] h-[900px] bg-[#1e1e1e] flex flex-col overflow-hidden">
+    <div class="h-10 bg-[#181818] border-b border-[#2d2d2d] flex items-center justify-between px-4 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#ff6c37] flex items-center gap-1.5 text-sm">Postman</span>
+        <span class="text-[#888]">/ Societies / Create Society (with auto Secretary account)</span>
+      </div>
+      <span class="text-[#28a745] font-bold">● Connected</span>
+    </div>
+
+    <div class="p-4 bg-[#212121] border-b border-[#2d2d2d] flex items-center gap-2">
+      <span class="px-3 py-2 bg-[#ff6c37] text-white font-bold rounded-l text-xs">POST</span>
+      <input type="text" value="http://localhost:5000/api/societies" class="flex-1 bg-[#181818] text-white px-3 py-2 text-xs border border-[#333] font-mono" readonly>
+      <button class="bg-[#097bed] text-white font-bold px-6 py-2 rounded text-xs">Send</button>
+    </div>
+
+    <div class="flex-1 grid grid-cols-2 gap-4 p-4 bg-[#1e1e1e] overflow-hidden">
+      <!-- Request Body -->
+      <div class="flex flex-col">
+        <span class="text-xs text-slate-400 font-semibold mb-2">Request Body (raw JSON):</span>
+        <pre class="p-4 bg-[#141414] rounded border border-[#2d2d2d] font-mono text-xs overflow-auto flex-1 leading-relaxed">
+{
+  <span class="json-key">"name"</span>: <span class="json-str">"Palm Beach Cooperative Housing Society Ltd."</span>,
+  <span class="json-key">"address"</span>: <span class="json-str">"Sector 14, Palm Beach Road"</span>,
+  <span class="json-key">"city"</span>: <span class="json-str">"Navi Mumbai"</span>,
+  <span class="json-key">"pincode"</span>: <span class="json-str">"400703"</span>,
+  <span class="json-key">"totalFlats"</span>: <span class="json-num">80</span>,
+  <span class="json-key">"establishedYear"</span>: <span class="json-num">1998</span>,
+  <span class="json-key">"secretaryName"</span>: <span class="json-str">"Suresh Nambiar"</span>,
+  <span class="json-key">"secretaryEmail"</span>: <span class="json-str">"secretary.palmbeach@gmail.com"</span>,
+  <span class="json-key">"temporaryPassword"</span>: <span class="json-str">"sec123pass"</span>,
+  <span class="json-key">"secretaryWing"</span>: <span class="json-str">"A"</span>,
+  <span class="json-key">"secretaryFlatNumber"</span>: <span class="json-str">"302"</span>
+}</pre>
+      </div>
+
+      <!-- Response Body -->
+      <div class="flex flex-col">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs text-slate-400 font-semibold">Response:</span>
+          <span class="text-xs text-[#888]">Status: <strong class="text-[#28a745]">201 Created</strong> • 45 ms</span>
+        </div>
+        <pre class="p-4 bg-[#141414] rounded border border-[#2d2d2d] font-mono text-xs overflow-auto flex-1 leading-relaxed">
+{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"message"</span>: <span class="json-str">"Society and Secretary account created successfully!"</span>,
+  <span class="json-key">"data"</span>: {
+    <span class="json-key">"_id"</span>: <span class="json-str">"6797a29dc23948e8a12044"</span>,
+    <span class="json-key">"name"</span>: <span class="json-str">"Palm Beach Cooperative Housing Society Ltd."</span>,
+    <span class="json-key">"city"</span>: <span class="json-str">"Navi Mumbai"</span>,
+    <span class="json-key">"secretaryId"</span>: {
+      <span class="json-key">"_id"</span>: <span class="json-str">"6797a29dc23948e8a12045"</span>,
+      <span class="json-key">"name"</span>: <span class="json-str">"Suresh Nambiar"</span>,
+      <span class="json-key">"email"</span>: <span class="json-str">"secretary.palmbeach@gmail.com"</span>,
+      <span class="json-key">"role"</span>: <span class="json-str">"secretary"</span>,
+      <span class="json-key">"accountStatus"</span>: <span class="json-str">"approved"</span>
+    }
+  }
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= POSTMAN PUT API VIEW ================= -->
+  <div id="view-postman-put" class="w-[1440px] h-[900px] bg-[#1e1e1e] flex flex-col overflow-hidden">
+    <div class="h-10 bg-[#181818] border-b border-[#2d2d2d] flex items-center justify-between px-4 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#ff6c37] flex items-center gap-1.5 text-sm">Postman</span>
+        <span class="text-[#888]">/ Residents / Approve Resident Registration</span>
+      </div>
+      <span class="text-[#28a745] font-bold">● Connected</span>
+    </div>
+
+    <div class="p-4 bg-[#212121] border-b border-[#2d2d2d] flex items-center gap-2">
+      <span class="px-3 py-2 bg-[#d19a66] text-white font-bold rounded-l text-xs">PUT</span>
+      <input type="text" value="http://localhost:5000/api/residents/6797a1f0c23948e8a12005/approve" class="flex-1 bg-[#181818] text-white px-3 py-2 text-xs border border-[#333] font-mono" readonly>
+      <button class="bg-[#097bed] text-white font-bold px-6 py-2 rounded text-xs">Send</button>
+    </div>
+
+    <div class="flex-1 flex flex-col p-4 bg-[#1e1e1e] overflow-hidden">
+      <div class="flex items-center justify-between pb-3 border-b border-[#333]">
+        <div class="flex items-center gap-4 text-xs">
+          <span class="text-[#888]">Status: <strong class="text-[#28a745]">200 OK</strong></span>
+          <span class="text-[#888]">Time: <strong class="text-[#28a745]">18 ms</strong></span>
+          <span class="text-[#888]">Size: <strong class="text-[#28a745]">1.15 KB</strong></span>
+        </div>
+        <span class="text-xs text-[#28a745]">✓ Resident Verification Cleared</span>
+      </div>
+
+      <pre class="mt-3 p-4 bg-[#141414] rounded border border-[#2d2d2d] font-mono text-xs overflow-auto flex-1 leading-relaxed">
+{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"message"</span>: <span class="json-str">"Anita Sharma has been approved successfully!"</span>,
+  <span class="json-key">"data"</span>: {
+    <span class="json-key">"_id"</span>: <span class="json-str">"6797a1f0c23948e8a12005"</span>,
+    <span class="json-key">"name"</span>: <span class="json-str">"Anita Sharma"</span>,
+    <span class="json-key">"email"</span>: <span class="json-str">"pending.anita@gmail.com"</span>,
+    <span class="json-key">"role"</span>: <span class="json-str">"resident"</span>,
+    <span class="json-key">"accountStatus"</span>: <span class="json-str">"approved"</span>,
+    <span class="json-key">"societyId"</span>: <span class="json-str">"6797a1f0c23948e8a12001"</span>,
+    <span class="json-key">"wing"</span>: <span class="json-str">"D"</span>,
+    <span class="json-key">"flatNumber"</span>: <span class="json-str">"502"</span>,
+    <span class="json-key">"updatedAt"</span>: <span class="json-str">"2026-09-28T01:30:00.000Z"</span>
+  }
+}</pre>
+    </div>
+  </div>
+
+  <!-- ================= POSTMAN DELETE API VIEW ================= -->
+  <div id="view-postman-delete" class="w-[1440px] h-[900px] bg-[#1e1e1e] flex flex-col overflow-hidden">
+    <div class="h-10 bg-[#181818] border-b border-[#2d2d2d] flex items-center justify-between px-4 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#ff6c37] flex items-center gap-1.5 text-sm">Postman</span>
+        <span class="text-[#888]">/ Notices / Delete Notice Circular</span>
+      </div>
+      <span class="text-[#28a745] font-bold">● Connected</span>
+    </div>
+
+    <div class="p-4 bg-[#212121] border-b border-[#2d2d2d] flex items-center gap-2">
+      <span class="px-3 py-2 bg-[#e06c75] text-white font-bold rounded-l text-xs">DELETE</span>
+      <input type="text" value="http://localhost:5000/api/notices/6797a1f0c23948e8a12009" class="flex-1 bg-[#181818] text-white px-3 py-2 text-xs border border-[#333] font-mono" readonly>
+      <button class="bg-[#097bed] text-white font-bold px-6 py-2 rounded text-xs">Send</button>
+    </div>
+
+    <div class="flex-1 flex flex-col p-4 bg-[#1e1e1e] overflow-hidden">
+      <div class="flex items-center justify-between pb-3 border-b border-[#333]">
+        <div class="flex items-center gap-4 text-xs">
+          <span class="text-[#888]">Status: <strong class="text-[#28a745]">200 OK</strong></span>
+          <span class="text-[#888]">Time: <strong class="text-[#28a745]">21 ms</strong></span>
+          <span class="text-[#888]">Size: <strong class="text-[#28a745]">340 B</strong></span>
+        </div>
+      </div>
+
+      <pre class="mt-3 p-4 bg-[#141414] rounded border border-[#2d2d2d] font-mono text-xs overflow-auto flex-1 leading-relaxed">
+{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"message"</span>: <span class="json-str">"Notice deleted successfully"</span>
+}</pre>
+    </div>
+  </div>
+
+  <!-- ================= MONGODB RECORDS COMPASS VIEW ================= -->
+  <div id="view-mongodb-records" class="w-[1440px] h-[900px] bg-[#001e2b] text-[#f9fbfa] flex flex-col overflow-hidden">
+    <!-- MongoDB Compass Header -->
+    <div class="h-12 bg-[#001e2b] border-b border-[#113b47] flex items-center justify-between px-6">
+      <div class="flex items-center gap-3">
+        <svg class="w-6 h-6 fill-[#00ed64]" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        <span class="font-bold text-white text-base">MongoDB Compass</span>
+        <span class="text-xs px-2 py-0.5 rounded bg-[#113b47] text-[#00ed64] font-mono">localhost:27017 / redevelopease_db</span>
+      </div>
+      <div class="flex items-center gap-3 text-xs">
+        <span class="text-[#a5b2b7]">Server Version: <strong class="text-white">v7.0.5</strong></span>
+        <span class="text-[#a5b2b7]">Collections: <strong class="text-white">13</strong></span>
+      </div>
+    </div>
+
+    <!-- MongoDB Sub-Nav -->
+    <div class="h-10 bg-[#00141e] border-b border-[#113b47] flex items-center gap-6 px-6 text-xs text-[#a5b2b7]">
+      <span class="text-[#00ed64] border-b-2 border-[#00ed64] py-2.5 font-bold">Documents</span>
+      <span>Aggregations</span>
+      <span>Schema</span>
+      <span>Explain Plan</span>
+      <span>Indexes</span>
+      <span>Validation</span>
+    </div>
+
+    <!-- Collection Explorer Body -->
+    <div class="flex-1 flex overflow-hidden">
+      <!-- Left sidebar: Collections -->
+      <div class="w-64 bg-[#00141e] border-r border-[#113b47] p-3 text-xs space-y-1">
+        <div class="p-2 rounded bg-[#113b47] text-white font-bold flex justify-between">
+          <span>societies</span>
+          <span class="bg-[#001e2b] px-1.5 py-0.2 rounded text-[10px] text-[#00ed64]">2 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>users</span>
+          <span>7 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>redevelopmentupdates</span>
+          <span>4 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>complaints</span>
+          <span>3 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>notices</span>
+          <span>3 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>documents</span>
+          <span>5 docs</span>
+        </div>
+        <div class="p-2 rounded hover:bg-[#002635] text-[#a5b2b7] flex justify-between">
+          <span>activitylogs</span>
+          <span>12 docs</span>
+        </div>
+      </div>
+
+      <!-- Right Main: JSON BSON Explorer -->
+      <div class="flex-1 bg-[#001e2b] p-5 overflow-auto space-y-4 font-mono text-xs">
+        <!-- Document 1 -->
+        <div class="p-4 bg-[#00141e] rounded-xl border border-[#113b47] shadow-md space-y-1.5">
+          <div class="flex justify-between items-center text-[#a5b2b7] pb-1 border-b border-[#113b47] text-[11px]">
+            <span>_id: <strong class="text-[#00ed64]">ObjectId("6797a1f0c23948e8a12001")</strong></span>
+            <span>Document 1 of 2</span>
+          </div>
+          <div class="pl-2 space-y-1 leading-relaxed text-[#c1c7c6]">
+            <div><span class="text-[#00ed64]">name</span>: <span class="text-[#e8edeb]">"Greenview Heights Co-op Housing Society Ltd."</span></div>
+            <div><span class="text-[#00ed64]">address</span>: <span class="text-[#e8edeb]">"Plot 42, Senapati Bapat Marg, Dadar West"</span></div>
+            <div><span class="text-[#00ed64]">city</span>: <span class="text-[#e8edeb]">"Mumbai"</span></div>
+            <div><span class="text-[#00ed64]">pincode</span>: <span class="text-[#e8edeb]">"400028"</span></div>
+            <div><span class="text-[#00ed64]">totalFlats</span>: <span class="text-[#fe9200]">120</span></div>
+            <div><span class="text-[#00ed64]">establishedYear</span>: <span class="text-[#fe9200]">1986</span></div>
+            <div><span class="text-[#00ed64]">registrationNumber</span>: <span class="text-[#e8edeb]">"BOM/HSG/TC/10423/1986"</span></div>
+            <div><span class="text-[#00ed64]">secretaryId</span>: <span class="text-[#00ed64]">ObjectId("6797a1f0c23948e8a12002")</span></div>
+            <div><span class="text-[#00ed64]">redevelopmentInfo</span>: {</div>
+            <div class="pl-4">
+              <div><span class="text-[#00ed64]">builderName</span>: <span class="text-[#e8edeb]">"Apex Lifespaces & Infra Pvt Ltd"</span></div>
+              <div><span class="text-[#00ed64]">reraNumber</span>: <span class="text-[#e8edeb]">"P51800028192"</span></div>
+              <div><span class="text-[#00ed64]">status</span>: <span class="text-[#e8edeb]">"RCC Construction"</span></div>
+              <div><span class="text-[#00ed64]">currentProgress</span>: <span class="text-[#fe9200]">68</span></div>
+              <div><span class="text-[#00ed64]">carpetAreaHikePercentage</span>: <span class="text-[#fe9200]">28.5</span></div>
+              <div><span class="text-[#00ed64]">monthlyTransitRentPerSqFt</span>: <span class="text-[#fe9200]">75</span></div>
+            </div>
+            <div>}</div>
+            <div><span class="text-[#00ed64]">createdAt</span>: <span class="text-[#2dc4ff]">ISODate("2026-09-26T21:13:37.000Z")</span></div>
+            <div><span class="text-[#00ed64]">updatedAt</span>: <span class="text-[#2dc4ff]">ISODate("2026-09-27T17:48:42.000Z")</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

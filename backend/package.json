@@ -7,7 +7,13 @@
     "start": "node src/server.js",
     "dev": "node src/server.js"
   },
-  "keywords": ["redevelopment", "housing-society", "saas", "express", "mongodb"],
+  "keywords": [
+    "redevelopment",
+    "housing-society",
+    "saas",
+    "express",
+    "mongodb"
+  ],
   "author": "RedevelopEase",
   "license": "ISC",
   "type": "commonjs",
@@ -19,6 +25,7 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb-memory-server": "^11.3.0",
     "mongoose": "^9.10.2",
-    "multer": "^2.4.0"
+    "multer": "^2.4.0",
+    "puppeteer-core": "^25.12.0"
   }
 }
